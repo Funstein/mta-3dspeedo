@@ -1,0 +1,9 @@
+<meta>
+    <info author="Funstein & Beatles1" type="script" name="3dspeedo" version="1.0" />
+	<min_mta_version client="1.3.1" server="1.3.1" />
+	<script src="client.lua" type="client"/>
+
+	<!-- These functions can be used to switch between mph and km/h -->
+	<export function="toggleType" type="client" />
+	<export function="getType" type="client" />
+</meta>
