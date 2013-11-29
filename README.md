@@ -9,6 +9,7 @@ Get in a vehicle to start the speedometer. It will start displaying your vehicle
 Teams listed in the script file are entitled to infinite NOS on every NOS-armed vehicle they board.
 
 If you want to switch to the (pointless) imperial system, use the command /speedounit
+
 If for some reason you lack visual taste and would like to use a 2d speedometer, use the command /speedotype
 
 Todo
