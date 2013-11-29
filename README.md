@@ -6,12 +6,16 @@ Features
 --------
 Get in a vehicle to start the speedometer. It will start displaying your vehicle health, nitro status and speed right next to the driver's door.
 
-If you're having issues with the 3D display or are more used to the (pointless) imperial system, use /speedo in order to call up the speedometer settings GUI.
+Teams listed in the script file are entitled to infinite NOS on every NOS-armed vehicle they board.
+
+If you want to switch to the (pointless) imperial system, use the command /speedounit
+If for some reason you lack visual taste and would like to use a 2d speedometer, use the command /speedotype
 
 Todo
 --------
-* Fully implement the settings UI
-* Add a better implementation for the nitrous-infinite permission
+* Implement a settings GUI
+* Consider better implementations of the nitrous-infinite permission system
+* Rewrite the unit/type settings code
 
 Known Bugs
 --------
