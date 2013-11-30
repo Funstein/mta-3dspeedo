@@ -34,14 +34,18 @@ function saveConf()
 end
 
 function loadConf()
-	local conf = fileOpen("speed.conf", true)
-	if conf then
-		local confString = fileRead(conf, fileGetSize(conf))
-		local array = fromJSON(confString)
-		if array then
-			mph = array[1]
-			twoDMode = array[2]
+	if fileExists("speed.conf") then
+		local conf = fileOpen("speed.conf")
+		if conf then
+			local confString = fileRead(conf, fileGetSize(conf))
+			local array = fromJSON(confString)
+			if array then
+				mph = array[1]
+				twoDMode = array[2]
+			end
 		end
+	else
+		saveConf()
 	end
 end
 loadConf()
