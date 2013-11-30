@@ -1,3 +1,6 @@
+-- Once in how many frames should the data be refreshed?
+local rpf = 4
+
 local clr = tocolor(0, 255, 0)
 local clr2 = tocolor(0, 255, 0)
 local clrWhite = tocolor(255,255,255)
@@ -19,9 +22,6 @@ local mph = false
 infNOSTeams = {
 ["Admin"] = true,
 }
-
-addCommandHandler("probably", function() twoDMode = not twoDMode saveConf() end)
-addCommandHandler("speedo", function() twoDMode = not twoDMode saveConf() end)
 
 function saveConf()
 	local conf = fileCreate("speed.conf")
@@ -75,12 +75,9 @@ function toggleSpeed(setTo)
 	end
 end
 
-local i = 0
 function drawSpeed()
 	if drawing and isElement(veh) and getPedOccupiedVehicle(localPlayer) == veh then	
-		i = i + 1
-		if i > 3 then
-			i = 0
+		if (getTickCount() % (rpf + 1)) == 0 then
 			speed = getSpeed()
 			health = ((getElementHealth(veh) - 200) * (5/4)) / 1000
 			if health > 1 then health = 1 end
@@ -173,9 +170,8 @@ function toggleType()
 	mph = not mph
 	saveConf()
 end
-addCommandHandler("kmh", toggleType)
-addCommandHandler("kph", toggleType)
-addCommandHandler("mph", toggleType)
+addCommandHandler("speedounit", toggleType)
+addCommandHandler("speedotype", function() twoDMode = not twoDMode saveConf() end)
 
 bindKey("vehicle_fire", "both",
 function(_,state)
